@@ -9,6 +9,7 @@
         <module name="register-center" />
         <module name="user-service" />
         <module name="zuul-gateway" />
+        <module name="config-server" />
         <module name="cloud-gateway" />
       </profile>
     </annotationProcessing>
@@ -16,6 +17,7 @@
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="cloud-gateway" options="-parameters" />
+      <module name="config-server" options="-parameters" />
       <module name="register-center" options="-parameters" />
       <module name="springcloud-0423" options="-parameters" />
       <module name="user-service" options="-parameters" />

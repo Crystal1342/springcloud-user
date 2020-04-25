@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: config-server
+  cloud:
+    config:
+      server:
+        git:
+          #git仓库
+          uri: https://github.com/Crystal1342/springcloud-user.git
+          search-paths:
+          - configfiles
+          default-label:
+      #从那个分支里面拉取文件
+      lable: springcloud-config
+server:
+  port: 8888

@@ -31,6 +31,7 @@ public class T_userController {
     @Autowired
     private IT_userService it_userService;
 
+    //分页+列表+模糊查询
     @RequestMapping("getList")
     public ResultEntity getlist(@RequestParam(defaultValue = "1")Integer current,
                                 @RequestParam(defaultValue = "3")Integer size, T_user user){
@@ -39,6 +40,7 @@ public class T_userController {
         return ResultEntity.ok(pageInfo);
     }
 
+    //添加
     //@RequestMapping("insert")
     @PostMapping("insert")
     public ResultEntity insert(T_user t_user){
@@ -46,17 +48,20 @@ public class T_userController {
         return ResultEntity.ok(flag);
     }
 
+    //修改
     @RequestMapping("update")
     public ResultEntity update(T_user t_user){
         boolean flag = it_userService.updateById(t_user);
         return ResultEntity.ok(flag);
     }
 
+    //单删
     @RequestMapping("delete")
     public ResultEntity delete(Integer uid){
         return ResultEntity.ok(it_userService.removeById(uid));
     }
 
+    //批量删除
     @RequestMapping("/deletes")
     public ResultEntity delete(Integer ids[]){
         //返回boolean
