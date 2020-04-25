@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.syb.user.mapper.T_userMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.syb.user.entity.T_user">
+        <id column="uid" property="uid" />
+        <result column="uname" property="uname" />
+        <result column="birthday" property="birthday" />
+        <result column="createtime" property="createtime" />
+        <result column="imgurl" property="imgurl" />
+        <result column="proviceld" property="proviceld" />
+        <result column="cityId" property="cityId" />
+    </resultMap>
+
+    <select id="getlist" resultMap="BaseResultMap">
+        select * from t_user u
+        <where>
+            <if test="user!=null">
+                <if test="user.uname!=null and user.uname !=''">
+                    and u.uname like concat('%',#{user.uname},'%')
+                </if>
+            </if>
+        </where>
+    </select>
+
+    <insert id="saveUser">
+        insert into t_user value (null,uname,birthday,createtime)
+    </insert>
+
+</mapper>
